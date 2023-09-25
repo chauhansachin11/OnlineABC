@@ -1,0 +1,158 @@
+<div class="tab-pane" id="mycards">
+     <form class="form" method="post" id="registrationForm">
+       {% csrf_token %}
+      <table style="width:100%">
+
+        <tr style="border-bottom:1px solid green">
+          <th>CardName</th>
+          <th>BankName</th>
+          <th>CardNumber</th>
+          <th>Delete</th>
+        </tr>
+        {%for card in cards%}
+        <tr>
+          <form class="form" method="post" id="registrationForm">
+            {% csrf_token %}
+          <th hidden><input type="text" class="form-control" name="cardID" id="cardID" value={{card.id}} placeholder={{card.id}} hidden></th>
+          <th>{{card.cardName}}</th>
+          <th>{{card.bankName}}</th>
+          <th>{{card.cardNumber}}</th>
+          <th><button class="btn btn-lg btn-danger pull-left" type="submit" name="delete_card"><i class="fa fa-trash-o"></i> Delete</button></th>
+        </form>
+        </tr>
+        <br>
+        {% endfor %}
+     </table>
+   </form>
+   </div><!--/tab-pane-->
+   <div class="tab-pane" id="cardDetails">
+
+
+        <hr>
+        <form class="form" method="post" id="registrationForm">
+           {% csrf_token %}
+           <div class="form-group">
+
+               <div class="col-xs-6">
+                   <label for="bankName"><h4>Bank Name</h4></label>
+                   <select class="form-control" name="bankName" id="bankName" required>
+                       <option value="">None</option>
+                       <option value="Allahabad Bank">Allahabad Bank</option>
+                       <option value="Andhra Bank">Andhra Bank</option>
+                       <option value="Axis Bank">Axis Bank</option>
+                       <option value="Bank of Baroda">Bank of Baroda</option>
+                       <option value="Bank of India">Bank of India</option>
+                       <option value="Bank of Maharashtra">Bank of Maharashtra</option>
+                       <option value="Canara Bank">Canara Bank</option>
+                       <option value="Central Bank of India">Central Bank of India</option>
+                       <option value="Corporation Bank">Corporation Bank</option>
+                       <option value="HDFC Bank">HDFC Bank</option>
+                       <option value="ICICI Bank">ICICI Bank</option>
+                       <option value="Punjab National Bank">Punjab National Bank</option>
+                       <option value="State Bank of India">State Bank of India</option>
+                       <option value="Syndicate Bank">Syndicate Bank</option>
+                       <option value="Union Bank of India">Union Bank of India</option>
+                       <option value="Yes Bank">Yes Bank</option>
+                       <option value="IDBI Bank">IDBI Bank</option>
+                       <option value="Other">Other</option>
+                   </select>
+                 </div>
+           </div>
+
+            <div class="form-group">
+
+                <div class="col-xs-6">
+                    <label for="cardName"><h4>Owner</h4></label>
+                    <input type="text" class="form-control" name="cardName" id="cardName" placeholder="Name on card" title="enter your name" pattern="^[a-zA-Z ]+$" required>
+                </div>
+            </div>
+            <div class="form-group">
+
+                <div class="col-xs-6">
+                  <label for="cardNumber"><h4>Card Number</h4></label>
+                    <input type="text" class="form-control" name="cardNumber" id="cardNumber" placeholder="enter card number" title="enter your card number" pattern="^\d{17}$" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+
+                <div class="col-xs-6">
+                    <label for="cvv"><h4>CVV</h4></label>
+                    <input type="text" class="form-control" name="cvv" id="cvv" placeholder="enter cvv" title="enter a valid 3 digit cvv number" pattern="^\d{3}$" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+
+                <div class="col-xs-6">
+                    <label for="phoneNumber"><h4>Phone</h4></label>
+                    <input type="text" class="form-control" name="phoneNumber" id="phoneNumber" placeholder="enter phone" title="enter a valid phone number associated with the bank." pattern="^[6-9]\d{9}$" required>
+                    {{ form.errors.phoneNumber }}
+                </div>
+            </div>
+
+            <div class="form-group">
+              <div class="col-xs-6">
+              <label for="expiryDate"><h4>Expiration Date</h4></label>
+              <select class="form-control" name="month" id="month" required>
+                  <option value="">None</option>
+                  <option value="01">January</option>
+                  <option value="02">February </option>
+                  <option value="03">March</option>
+                  <option value="04">April</option>
+                  <option value="05">May</option>
+                  <option value="06">June</option>
+                  <option value="07">July</option>
+                  <option value="08">August</option>
+                  <option value="09">September</option>
+                  <option value="10">October</option>
+                  <option value="11">November</option>
+                  <option value="12">December</option>
+              </select>
+              <select class="form-control" name="year" id="year" onchange="generateExpiryDate()" required>
+                  <option value="">None</option>
+                  <option value="18"> 2018</option>
+                  <option value="19"> 2019</option>
+                  <option value="20"> 2020</option>
+                  <option value="21"> 2021</option>
+                  <option value="22"> 2022</option>
+                  <option value="23"> 2023</option>
+                  <option value="24"> 2024</option>
+              </select>
+              </div>
+          </div>
+          <div class="form-group">
+
+              <div class="col-xs-6">
+                  <input type="text" class="form-control" name="expiryDate" id="expiryDate" value="" hidden>
+              </div>
+          </div>
+          <br></br>
+          <div class="form-group" id="credit_cards">
+            <img class="pull-right" src="{%static 'images/visa.jpg'%}">
+            <img class="pull-right" src="{%static 'images/mastercard.jpg'%}">
+            <img class="pull-right" src="{%static 'images/amex.jpg'%}">
+          </div>
+
+            <div class="form-group">
+                 <div class="col-xs-12">
+                      <br>
+                      <button class="btn btn-lg btn-success pull-left" type="submit" name="addcardDetails"><i class="glyphicon glyphicon-ok-sign"></i> Add</button>
+                      <button class="btn btn-lg" type="reset"><i class="glyphicon glyphicon-repeat"></i> Reset</button>
+                      {%if messages%}
+                      </br>
+                      <div class="w3-container w3-grey">
+                            <h2>
+                                      {%for message in messages%}
+                                              <h6 align='center'> <i class="fa fa-warning" style="font-size:24px"></i> {{message}}</h6>
+                                      {% endfor %}
+                                          </h2>
+                      </div>
+                      {% endif %}
+                  </div>
+            </div>
+          </form>
+
+        </div>
+
+        </div><!--/tab-pane-->

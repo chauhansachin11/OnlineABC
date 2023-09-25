@@ -1,0 +1,329 @@
+<html>
+
+<head>
+
+
+  <title>OnlineABC</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#03a6f3">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  {% load static %}
+  <link rel="stylesheet" href="{%static 'ABC/styles1.css'%}">
+    <link rel="stylesheet" href="{%static 'ABC/bootstrap.min.css'%}">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:200,300,400,500,600,700,800,900" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{%static 'ABC/owl.carousel.min.css'%}">
+    <script>
+
+    function addFields(){
+        var val=document.getElementById('bookType').value
+      if(val=="novel")
+        {
+            document.getElementById("novelType").style.display= 'block';
+            document.getElementById("novelType").style.visibility = 'visible';
+            document.getElementById("refType").style.display= 'none';
+            document.getElementById("refType").style.visibility = 'hidden';
+
+        }
+      else if(val=="refBook")
+      {
+        document.getElementById("novelType").style.display= 'none';
+        document.getElementById("novelType").style.visibility = 'hidden';
+        document.getElementById("refType").style.display= 'block';
+        document.getElementById("refType").style.visibility = 'visible';
+      }
+      else if(val=="none")
+      {
+        document.getElementById("novelType").style.display= 'none';
+        document.getElementById("novelType").style.visibility = 'hidden';
+        document.getElementById("refType").style.display= 'none';
+        document.getElementById("refType").style.visibility = 'hidden';
+      }
+    }
+    </script>
+
+
+</head>
+<body>
+    <header>
+        <div class="header-top">
+            <div class="container">
+                <div class="row">
+                  <!--  <div class="col-md-3"><a href="#" class="web-url">www.onlineabc.com</a></div>
+                    <div class="col-md-6">
+                        <h5>Free Shipping Over $99 + 3 Free Samples With Every Order</h5></div>
+                    <div class="col-md-3">
+                        <span class="ph-number">Call : 800 1234 5678</span>
+                    </div>-->
+                </div>
+            </div>
+        </div>
+
+        {% load static %}
+    <div class="main-menu">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <a class="navbar-brand" href="/ABC/index"><img src="{%static 'images/logo1.png'%}" alt="logo" height=63 width=200></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div style="font-size:16px; font-family: 'Montserrat' ,sans-serif" class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="navbar-item active">
+                            <a href="/ABC/retailerProfile" class="nav-link">Home</a>
+                        </li>
+                        <li class="navbar-item">
+                            <a href="/ABC/index" class="nav-link">Logout</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+<div class="breadcrumb">
+    <div class="container">
+        <a class="breadcrumb-item" href="/ABC/retailerProfile">Home</a>
+        <span class="breadcrumb-item active">MyProfile</span>
+    </div>
+</div>
+
+<hr>
+<div class="container bootstrap snippet">
+    <div class="row">
+  		<div class="col-sm-10"><h1>{{ user.shopName }}</h1></div>
+    	</div>
+    <div class="row">
+  		<div class="col-sm-3"><!--left col-->
+
+
+      <div class="text-center">
+        <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" class="avatar img-circle img-thumbnail" alt="avatar">
+        <h6>Upload a different photo...</h6>
+        <input type="file" class="text-center center-block file-upload">
+      </div></hr><br>
+
+          <ul class="list-group">
+            <li class="list-group-item text-muted">User Details <i class="fa fa-male"></i></li>
+            <li class="list-group-item text-right"><span class="pull-left"><strong>Shop</strong></span>{{ user.shopName }}</li>
+            <li class="list-group-item text-right"><span class="pull-left"><strong>Address</strong></span>{{ user.shopAddress }}</li>
+            <li class="list-group-item text-right"><span class="pull-left"><strong>Pincode</strong></span>{{ user.shopPincode }}</li>
+            <li class="list-group-item text-right"><span class="pull-left"><strong>Mobile Number</strong></span>{{ user.retailerPriPhone}}</li>
+            <li class="list-group-item text-right"><span class="pull-left"><strong>Alternate Number</strong></span>{{ user.retailerSecPhone }}</li>
+            <li class="list-group-item text-right"><span class="pull-left"><strong>Email</strong></span>{{ user.retailerEmailID }}</li>
+          </ul>
+
+          <div class="panel panel-default">
+            <div class="panel-heading">OnlineABC.com</div>
+          </div>
+
+        </div><!--/col-3-->
+
+<div class="col-sm-9">
+      <ul class="nav nav-tabs">
+          <li class="active"><a data-toggle="tab" href="#addBooks">Add Books</a></li>
+          <li><a data-toggle="tab" href="#deleteBooks">Delete Books</a></li>
+          <li><a data-toggle="tab" href="#updateBooks">Update Books</a></li>
+        </ul>
+          <div class="tab-content">
+            <div class="tab-pane active" id="addBooks">
+                <hr>
+                  <form class="form" method="post" id="addBookForm" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="form-group">
+                          <div class="col-xs-6">
+                            <label for="bookType"><h4>Type Of the Book</h4></label>
+                            <select class="form-control" name="bookType" id="bookType" onchange="addFields()" required>
+                                <option value="none">None</option>
+                                <option value="novel">Novel</option>
+                                <option value="refBook">Reference</option>
+                            </select>
+                          </div>
+                        </div>
+                        <div id="novelType" class="form-group" style="display:none; visibility:hidden;">
+                          <div class="col-xs-6">
+                            <label for="novelType"><h4>Type Of The Novel</h4></label>
+                            <select class="form-control" name="novelType" id="novelType">
+                                <option value="">None</option>
+                                <option value="Biography">Biography</option>
+                                <option value="Classic">Classic</option>
+                                <option value="Comedy">Comedy</option>
+                                <option value="Comics">Comics</option>
+                                <option value="Detective">Detective</option>
+                                <option value="Fable">Fable</option>
+                                <option value="Fairy Tale">Fairy Tale</option>
+                                <option value="Fantasy">Fantasy</option>
+                                <option value="Historical Fiction">Historical Fiction</option>
+                                <option value="Horror">Horror</option>
+                                <option value="Literature">Literature</option>
+                                <option value="Mystery">Mystery</option>
+                                <option value="Mythology">Mythology</option>
+                                <option value="Romance">Romance</option>
+                                <option value="Science Fiction">Science Fiction</option>
+                                <option value="Thriller">Thriller</option>
+                            </select>
+                          </div>
+                        </div>
+                        <div id="refType" class="form-group" style="display:none; visibility:hidden;">
+                          <div class="col-xs-6">
+                            <label for="refType"><h4>Type Of Reference Book</h4></label>
+                            <select class="form-control" name="refType" id="refType">
+                                <option value="">None</option>
+                                <option value="Algorithm">Algorithm</option>
+                                <option value="Data Structure">Data Structure</option>
+                                <option value="Operating System">Operating System</option>
+                                <option value="System Programming">System Programming</option>
+                                <option value="DBMS">DBMS</option>
+                                <option value="RDBMS">RDBMS</option>
+                                <option value="Computer Networks">Computer Networks</option>
+                                <option value="Algebra">Algebra</option>
+                                <option value="Geometry">Geometry</option>
+                                <option value="Statistics">Statistics</option>
+                                <option value="Calculas">Calculas</option>
+                            </select>
+                          </div>
+                        </div>
+                      <div class="form-group">
+                          <div class="col-xs-6">
+                            <label for="BookName"><h4>Book Name</h4></label>
+                              <input type="text" class="form-control" name="bookName" id="bookName" placeholder="BookName" title="Enter the book name" pattern="^[a-zA-Z0-9\'\s]*$" required>
+                          </div>
+                      </div>
+
+                      <div class="form-group">
+
+                          <div class="col-xs-6">
+                              <label for="bookISBNcode"><h4>ISBN CODE</h4></label>
+                              <input type="text" class="form-control" name="bookISBNcode" id="bookISBNcode" placeholder="Book's ISBN CODE" required>
+                          </div>
+                      </div>
+
+                      <div class="form-group">
+
+                          <div class="col-xs-6">
+                              <label for="bookPublication"><h4>Publication</h4></label>
+                              <input type="text" class="form-control" name="bookPublication" id="bookPublication" placeholder="Book's publication" >
+                          </div>
+                      </div>
+
+                      <div class="form-group">
+
+                          <div class="col-xs-6">
+                              <label for="bookAuthor"><h4>Author</h4></label>
+                              <input type="text" class="form-control" name="bookAuthor" id="bookAuthor" placeholder="Book's Author" >
+                          </div>
+                      </div>
+
+                      <div class="form-group">
+
+                          <div class="col-xs-6">
+                              <label for="bookEdition"><h4>Edition</h4></label>
+                              <input type="text" class="form-control" name="bookEdition" id="bookEdition" placeholder="Book's Edition" >
+                          </div>
+                      </div>
+
+                      <div class="form-group">
+
+                          <div class="col-xs-6">
+                              <label for="bookPrice"><h4>Price</h4></label>
+                              <input type="text" class="form-control" name="bookPrice" id="bookPrice" placeholder="Book's Price" required>
+                          </div>
+                      </div>
+
+                      <div class="form-group">
+
+                          <div class="col-xs-6">
+                              <label for="bookImage"><h4>Image</h4></label>
+                              <input type="file" class="form-control" name="bookImage" id="bookImage">
+                          </div>
+                      </div>
+
+                      <div class="form-group">
+                           <div class="col-xs-12">
+                                <br>
+                                <button class="btn btn-lg btn-success" type="submit" name="addNewBooks"><i class="glyphicon glyphicon-ok-sign"></i> Save</button>
+                                <button class="btn btn-lg" type="reset"><i class="glyphicon glyphicon-repeat"></i> Reset</button>
+                                {%if messages%}
+                                </br>
+                                <div class="w3-container w3-grey">
+                                      <h2>
+                                                {%for message in messages%}
+                                                        <h6 align='center'> <i class="fa fa-warning" style="font-size:24px"></i> {{message}}</h6>
+                                                {% endfor %}
+                                                    </h2>
+                                </div>
+                                {% endif %}
+                            </div>
+                      </div>
+                </form>
+
+              <hr>
+
+             </div><!--/tab-pane-->
+             <div class="tab-pane" id="deleteBooks">
+                  <form class="form" method="post" id="registrationForm">
+                    {% csrf_token %}
+                   <table style="width:100%">
+
+                     <tr style="border-bottom:1px solid green">
+                       <th>Book Name</th>
+                       <th>Book Author</th>
+                       <th>Book Price</th>
+                     </tr>
+                     {%for book in books%}
+                     <tr>
+                       <form class="form" method="post" id="registrationForm">
+                         {% csrf_token %}
+                       <th hidden><input type="text" class="form-control" name="bookID" id="bookID" value={{book.id}} placeholder={{book.id}} hidden></th>
+                       <th>{{book.bookName}}</th>
+                       <th>{{book.bookAuthor}}</th>
+                       <th>{{book.bookPrice}}</th>
+                       <th><button class="btn btn-lg btn-danger pull-left" type="submit" name="deleteBooks"><i class="fa fa-trash-o"></i> Delete</button></th>
+                     </form>
+                     </tr>
+                     <br>
+                     {% endfor %}
+                  </table>
+                </form>
+              </div><!--/tab-pane-->
+              <div class="tab-pane" id="updateBooks">
+                   <form class="form" method="post" id="registrationForm">
+                     {% csrf_token %}
+                    <table style="width:100%">
+
+                      <tr style="border-bottom:1px solid green">
+                        <th>Book Name</th>
+                        <th>Book Author</th>
+                        <th>Book Price</th>
+                        <th>Update Price</th>
+                      </tr>
+                      {%for book in books%}
+                      <tr>
+                        <form class="form" method="post" id="registrationForm">
+                          {% csrf_token %}
+                        <th hidden><input type="text" class="form-control" name="bookID" id="bookID" value={{book.id}} placeholder={{book.id}} hidden></th>
+                        <th>{{book.bookName}}</th>
+                        <th>{{book.bookAuthor}}</th>
+                        <th>{{book.bookPrice}}</th>
+                        <th><input type="text" class="form-control" name="bookPrice" id="bookPrice" placeholder="Book's Price" required></th>
+                        <th><button class="btn btn-lg btn-danger pull-left" type="submit" name="updateBooks"><i class="fa fa-trash-o"></i> Update</button></th>
+                      </form>
+                      </tr>
+                      <br>
+                      {% endfor %}
+                   </table>
+                 </form>
+               </div><!--/tab-pane-->
+          </div><!--/tab-content-->
+
+      </div>
+  </div><!--/col-9-->
+</div><!--/row-->
+</html>

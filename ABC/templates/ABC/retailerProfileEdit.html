@@ -1,0 +1,211 @@
+<html>
+
+<head>
+
+
+  <title>OnlineABC</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#03a6f3">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  {% load static %}
+  <link rel="stylesheet" href="{%static 'ABC/styles1.css'%}">
+
+    <link rel="stylesheet" href="{%static 'ABC/bootstrap.min.css'%}">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:200,300,400,500,600,700,800,900" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{%static 'ABC/owl.carousel.min.css'%}">
+    <script type="text/javascript">
+      window.history.forward();
+      function noBack() { window.history.forward(); }
+    </script>
+</head>
+<body onload="noBack();"
+    onpageshow="if (event.persisted) noBack();" onunload="">
+    <header>
+        <div class="header-top">
+            <div class="container">
+                <div class="row">
+                  <!--  <div class="col-md-3"><a href="#" class="web-url">www.onlineabc.com</a></div>
+                    <div class="col-md-6">
+                        <h5>Free Shipping Over $99 + 3 Free Samples With Every Order</h5></div>
+                    <div class="col-md-3">
+                        <span class="ph-number">Call : 800 1234 5678</span>
+                    </div>-->
+                </div>
+            </div>
+        </div>
+
+        {% load static %}
+    <div class="main-menu">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <a class="navbar-brand" href="/ABC/retailerProfile"><img src="{%static 'images/logo1.png'%}" alt="logo" height=63 width=200></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div style="font-size:16px; font-family: 'Montserrat' ,sans-serif" class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="navbar-item active">
+                            <a href="/ABC/retailerProfile" class="nav-link">Home</a>
+                        </li>
+                        <li class="navbar-item">
+                            <a href="/ABC/index" class="nav-link">Logout</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+<div class="breadcrumb">
+    <div class="container">
+        <a class="breadcrumb-item" href="/ABC/retailerProfile">Home</a>
+        <span class="breadcrumb-item active">MyProfile</span>
+    </div>
+</div>
+
+<hr>
+<div class="container bootstrap snippet">
+    <div class="row">
+  		<div class="col-sm-10"><h1>{{ user.shopName }}</h1></div>
+    	</div>
+    <div class="row">
+  		<div class="col-sm-3"><!--left col-->
+
+
+      <div class="text-center">
+        <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" class="avatar img-circle img-thumbnail" alt="avatar">
+        <h6>Upload a different photo...</h6>
+        <input type="file" class="text-center center-block file-upload">
+      </div></hr><br>
+
+          <ul class="list-group">
+            <li class="list-group-item text-muted">User Details <i class="fa fa-male"></i></li>
+            <li class="list-group-item text-right"><span class="pull-left"><strong>Shop</strong></span>{{ user.shopName }}</li>
+            <li class="list-group-item text-right"><span class="pull-left"><strong>Address</strong></span>{{ user.shopAddress }}</li>
+            <li class="list-group-item text-right"><span class="pull-left"><strong>Pincode</strong></span>{{ user.shopPincode }}</li>
+            <li class="list-group-item text-right"><span class="pull-left"><strong>Mobile Number</strong></span>{{ user.retailerPriPhone}}</li>
+            <li class="list-group-item text-right"><span class="pull-left"><strong>Alternate Number</strong></span>{{ user.retailerSecPhone }}</li>
+            <li class="list-group-item text-right"><span class="pull-left"><strong>Email</strong></span>{{ user.retailerEmailID }}</li>
+          </ul>
+
+          <div class="panel panel-default">
+            <div class="panel-heading">OnlineABC.com</div>
+          </div>
+
+        </div><!--/col-3-->
+
+<div class="col-sm-9">
+      <ul class="nav nav-tabs">
+          <li class="active"><a data-toggle="tab" href="#editprofile">Edit Profile</a></li>
+          <li><a data-toggle="tab" href="#editaddress">Edit Address</a></li>
+        </ul>
+
+
+<div class="tab-content">
+  <div class="tab-pane active" id="editprofile">
+      <hr>
+        <form class="form" method="post" id="registrationForm">
+              {% csrf_token %}
+
+            <div class="form-group">
+
+                <div class="col-xs-6">
+                  <label for="retailerPriPhone"><h4>Primary Contact</h4></label>
+                    <input type="text" class="form-control" name="retailerPriPhone" id="retailerPriPhone" placeholder="Primary contact" title="Enter a primary phone number" pattern="^[6-9]\d{9}$">
+                </div>
+            </div>
+
+            <div class="form-group">
+
+                <div class="col-xs-6">
+                    <label for="retailerSecPhone"><h4>Secondary Contact</h4></label>
+                    <input type="text" class="form-control" name="retailerSecPhone" id="retailerSecPhone" placeholder="Secondary contact" title="Enter a secondary contact." pattern="^[6-9]\d{9}$">
+                </div>
+            </div>
+
+            <div class="form-group">
+
+                <div class="col-xs-6">
+                    <label for="phone"><h4>Password</h4></label>
+                    <input type="password" class="form-control" name="retailerPassword" id="retailerPassword" placeholder="Modify your existing password" title="Enter your password" >
+                </div>
+            </div>
+
+            <div class="form-group">
+                 <div class="col-xs-12">
+                      <br>
+                      <button class="btn btn-lg btn-success" type="submit" name="updateRetailerDetails"><i class="glyphicon glyphicon-ok-sign"></i> Save</button>
+                      <button class="btn btn-lg" type="reset"><i class="glyphicon glyphicon-repeat"></i> Reset</button>
+                      {%if messages%}
+                      </br>
+                      <div class="w3-container w3-grey">
+                            <h2>
+                                      {%for message in messages%}
+                                              <h6 align='center'> <i class="fa fa-warning" style="font-size:24px"></i> {{message}}</h6>
+                                      {% endfor %}
+                                          </h2>
+                      </div>
+                      {% endif %}
+                  </div>
+            </div>
+      </form>
+
+    <hr>
+
+   </div><!--/tab-pane-->
+   <div class="tab-pane" id="editaddress">
+
+     <h2></h2>
+
+     <hr>
+        <form class="form" method="post" id="registrationForm">
+          {% csrf_token %}
+          <div class="form-group">
+
+              <div class="col-xs-6">
+                  <label for="Address"><h4>Address</h4></label>
+                  <input type="text" class="form-control" name="shopAddress" id="shopAddress" placeholder="Enter your shop address" title="enter your address if any." pattern="^[a-zA-Z0-9 ]+$">
+              </div>
+          </div>
+
+          <div class="form-group">
+
+              <div class="col-xs-6">
+                  <label for="Pincode"><h4>Pincode</h4></label>
+                  <input type="text" class="form-control" name="shopPincode" id="shopPincode" placeholder="Enter pincode" title="enter your pincode if any." pattern="^[0-9]{6}$">
+              </div>
+          </div>
+          <div class="form-group">
+                 <div class="col-xs-12">
+                      <br>
+                      <button class="btn btn-lg btn-success" type="submit" name="updateRetailerAddress"><i class="glyphicon glyphicon-ok-sign"></i> Save</button>
+                      <button class="btn btn-lg" type="reset"><i class="glyphicon glyphicon-repeat"></i> Reset</button>
+                      {%if messages%}
+                      </br>
+                      <div class="w3-container w3-grey">
+                            <h2>
+                                      {%for message in messages%}
+                                              <h6 align='center'> <i class="fa fa-warning" style="font-size:24px"></i> {{message}}</h6>
+                                      {% endfor %}
+                                          </h2>
+                      </div>
+                      {% endif %}
+                  </div>
+            </div>
+      </form>
+
+   </div><!--/tab-pane-->
+
+    </div><!--/tab-content-->
+
+  </div><!--/col-9-->
+</div><!--/row-->
+</html>

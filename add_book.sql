@@ -1,0 +1,1 @@
+insert into ABC_books (bookName,bookISBNcode,bookPublication,bookAuthor,bookEdition,bookPrice,bookImage,bookRetailer_id,bookTypeID_id) ("The Shining","978-0-385-12167-5","Doubleday","Stephen King","None",246,LOAD_FILE('/home/sachin/6th_sem/se2/myvenv/myproject/OnlineABC/ABC/static/images/TheShining.jpg'),)

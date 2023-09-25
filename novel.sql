@@ -1,0 +1,16 @@
+INSERT INTO ABC_noveltype (novelType) VALUES ("Classic");
+INSERT INTO ABC_noveltype (novelType) VALUES ("Comics");
+INSERT INTO ABC_noveltype (novelType) VALUES ("Detactive");
+INSERT INTO ABC_noveltype (novelType) VALUES ("Fable");
+INSERT INTO ABC_noveltype (novelType) VALUES ("Fairy tale");
+INSERT INTO ABC_noveltype (novelType) VALUES ("Fantasy");
+INSERT INTO ABC_noveltype (novelType) VALUES ("Historical fiction");
+INSERT INTO ABC_noveltype (novelType) VALUES ("Horror");
+INSERT INTO ABC_noveltype (novelType) VALUES ("Comedy");
+INSERT INTO ABC_noveltype (novelType) VALUES ("Mystery");
+INSERT INTO ABC_noveltype (novelType) VALUES ("Mythology");
+INSERT INTO ABC_noveltype (novelType) VALUES ("Science fiction");
+INSERT INTO ABC_noveltype (novelType) VALUES ("Thriller");
+INSERT INTO ABC_noveltype (novelType) VALUES ("Biography");
+INSERT INTO ABC_noveltype (novelType) VALUES ("Romance");
+INSERT INTO ABC_noveltype (novelType) VALUES ("Literature");

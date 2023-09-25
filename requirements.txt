@@ -1,0 +1,41 @@
+Online ABC -:
+-----------
+
+Functional Requirements :-
+	1). Verified registration for stakeholders(customer,retailer,delivery person).
+	2). Login into personal portal for added feature access like ordering details,
+	    past order records, personal wishist, and order tracking details.
+	3). Updation and/or modification of personal details allowed.
+	4). Providing best price options.
+	5). Home delivery and Online payment provisions enable the stakeholders
+	    (retailers and cutomers) to have better buying and selling experience.
+	6). Sorted way to select and search a required product according to it's
+	    category, genre, name, author name, and also allows to save the required
+	    or liked products.
+	7). Allows to view track orders.
+	8). Rate and review a particular product enabling the other customer to verify the quality and decide
+	    about buying it.
+	9). Resolving the issues about orders and enqueries by online customer service facility.
+
+
+Non-Functional Requirments :-
+
+	1). Secure login, hidden personal details, anonymous enquiry and review
+	    system, secure online payment transactions provide important detail
+	    securities.
+	2). Faster access to larger scope of books as and when needed as system provides additional
+	    information of books like bookcover,description,and book indexes.
+
+	Technical Specification :
+	1). HTML, CSS, Mysql, Django Framework and Python.
+	2). Feasible web application for all Operating systems.
+	3). Design case tool UML.
+
+
+Traceablity Matrix :-
+	1). Register, Login
+	2). Search with Filters
+	3). Orders and payment
+	4). Wishlist, cart and review system.
+	5). Order tracking along with delivery person details.
+	6). Suggestion and customer service option.

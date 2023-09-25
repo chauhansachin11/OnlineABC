@@ -1,0 +1,11 @@
+insert into ABC_booktype (typeName_id) (select id from ABC_noveltype where novelType like 'Algorithm');
+insert into ABC_booktype (typeName_id) (select id from ABC_noveltype where novelType like 'Data Structure');
+insert into ABC_booktype (typeName_id) (select id from ABC_noveltype where novelType like 'Operating System');
+insert into ABC_booktype (typeName_id) (select id from ABC_noveltype where novelType like 'System Programming');
+insert into ABC_booktype (typeName_id) (select id from ABC_noveltype where novelType like 'DBMS');
+insert into ABC_booktype (typeName_id) (select id from ABC_noveltype where novelType like 'RDBMS');
+insert into ABC_booktype (typeName_id) (select id from ABC_noveltype where novelType like 'Computer Networks');
+insert into ABC_booktype (typeName_id) (select id from ABC_noveltype where novelType like 'Algebra');
+insert into ABC_booktype (typeName_id) (select id from ABC_noveltype where novelType like 'Geometry');
+insert into ABC_booktype (typeName_id) (select id from ABC_noveltype where novelType like 'Statistics');
+insert into ABC_booktype (typeName_id) (select id from ABC_noveltype where novelType like 'Calculas');
